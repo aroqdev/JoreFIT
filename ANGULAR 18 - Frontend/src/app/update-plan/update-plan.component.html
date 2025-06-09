@@ -1,0 +1,66 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+@if(selectedPlan) {
+  <div class="apartado">
+    <h4>Administración / Gestion de planes</h4>
+    <span class="seccion" aria-label="Gestion de planes">Plan de {{ selectedPlan.nombre }}</span>
+    <hr>
+  </div>
+  <button routerLink="/admin/plans" class="return"><i class="fa-solid fa-arrow-left"></i></button>
+
+  <button class="add" [routerLink]="['/admin/addEjer', selectedPlan.id]">Agregar ejercicio</button>
+
+  @if (mensajeEstado) {
+    <p>{{ mensajeEstado }}</p>
+  }
+  @if (mensajeExito) {
+    <p class="valido">{{ mensajeExito }}</p>
+  }
+
+  <h5 class="level"><strong>NIVEL: </strong>
+  <select name="level" id="level" [(ngModel)]="selectedNivel" (change)="filtrar()">
+    <option value="Leve">LEVE</option>
+    <option value="Media">MEDIA</option>
+    <option value="Alta">ALTA</option>
+  </select></h5>
+
+  @if(selectedEjercicios.length != 0) {
+    @for (selectedEjercicio of selectedEjercicios; track $index) {
+      <div class="ejercicio">
+        <div class="imagenEjer">
+          <img [src]="selectedEjercicio.imagen" class="entrenamiento">
+        </div>
+        <div class="contenido">
+          <h2>{{selectedEjercicio.nombres}}</h2>
+          <h5>{{selectedEjercicio.descripcion}}</h5>
+          <div class="series">
+            <h5><strong>SERIES: </strong>{{ selectedEjercicio.series }}</h5>
+            <h5><strong>REPETICIONES: </strong>{{ selectedEjercicio.repeticiones }}</h5>
+          </div>
+          <div class="gestion">
+            <button class="btnUpdate" [routerLink]="['/admin/ejercicio', selectedEjercicio.id]"><i class="fas fa-pen"></i>Modificar</button>
+            <button class="btnDelete" (click)="eliminar(selectedEjercicio.id)"><i class="fas fa-trash"></i>Eliminar</button>
+          </div>
+        </div>
+      </div>
+    }
+    <div class="submit">
+      <br><button class="update" routerLink="/admin/plans">Volver</button><br><br><br>
+    </div>
+
+  } @else {
+    <div class="a">
+      <div class="linea"></div>
+        <span class="seccion">NO HAY EJERCICIOS ASIGNADOS EN ESTE PLAN</span>
+      <div class="linea"></div>
+    </div>
+  }
+} @else {
+  <div class="a">
+    <div class="linea"></div>
+      <span class="seccion">¡ERROR! AL BUSCAR EL PLAN</span>
+    <div class="linea"></div>
+  </div>
+}
+<app-footer2></app-footer2>

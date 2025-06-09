@@ -1,0 +1,178 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sección superior */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 1rem 2rem;
+}
+
+.img .icon {
+  height: 60px;
+  cursor: pointer;
+}
+
+.menu h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.menu h3 {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Navegación */
+.navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.navigation .return {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.return:hover {
+  color: #000;
+}
+
+/* Buscador */
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.search h4 {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  color: #444;
+}
+
+#searchBar {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+}
+
+/* Mensajes */
+.valido {
+  color: green;
+  font-weight: bold;
+  margin: 1rem 2rem;
+}
+
+p {
+  margin: 1rem 2rem;
+  font-size: 16px;
+}
+
+/* Tarjetas de usuarios */
+.users {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.userCard {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.userCard:hover {
+  transform: scale(1.02);
+}
+
+.datos h4 {
+  margin: 0.4rem 0;
+  color: #333;
+}
+
+/* Botones de opciones */
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+/* Estilos específicos por botón */
+.gestion {
+  background-color: #007bff;
+}
+
+.gestion:hover {
+  background-color: #0056b3;
+}
+
+.see {
+  background-color: #28a745;
+}
+
+.see:hover {
+  background-color: #1e7e34;
+}
+
+.delete {
+  background-color: #dc3545;
+}
+
+.delete:hover {
+  background-color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navegacion {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .userCard {
+    width: 90%;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #searchBar {
+    width: 100%;
+  }
+}

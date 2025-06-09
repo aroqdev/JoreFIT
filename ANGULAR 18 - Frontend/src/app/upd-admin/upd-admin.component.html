@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<h4>Perfil / Datos de usuario</h4>
+<span class="seccion">Actualización de datos</span>
+<hr>
+<button class="return" routerLink="/profile/admin"><i class="fa-solid fa-backward"></i></button><br>
+<div class="cuerpo">
+  <div class="formulario">
+    <form [formGroup]="datos"><br>
+        <i class="fa-solid fa-user-tie admin"></i>
+        <h5>Datos personales</h5><br>
+
+        <div class="form">
+          <label for="phone">Contraseña</label>
+          <i class="fa-solid fa-lock"></i>
+          <input type="text" name="contrasena" id="contrasena" placeholder="{{usuario.contrasena}}" formControlName="contrasena">
+          @if (contrasena.hasError('required') && contrasena.touched) {
+            <p>La CONTRASEÑA es obligatorio</p>
+          } @else if (contrasena.hasError('contrasenaFuerte') && contrasena.touched) {
+              <p>La CONTRASEÑA no es fuerte</p>
+          } @else if (contrasena.hasError('maxlength') && contrasena.touched || contrasena.hasError('minlength') && contrasena.touched) {
+              <p>La CONTRASEÑA no es valida</p>
+          } @else if (contrasena.valid && contrasena.touched) {
+              <p class="valido">La CONTRASEÑA es fuerte</p>
+          }
+          <br>
+        </div><br>
+
+        <div class="form">
+          <label for="phone">Repetir contraseña</label>
+          <i class="fa-solid fa-lock"></i>
+          <input type="text" name="repetirContrasena" id="repetirContrasena" placeholder="{{usuario.contrasena}}" formControlName="repetirContrasena" (keyup)="coincideContrasena()">
+          @if (repetirContrasena.hasError('required') && repetirContrasena.touched) {
+            <p>La CONTRASEÑA es obligatorio</p>
+          } @else if (repetirContrasena.hasError('contrasenaFuerte') && repetirContrasena.touched) {
+            <p>La CONTRASEÑA no es fuerte</p>
+          } @else if (repetirContrasena.hasError('maxlength') && repetirContrasena.touched || repetirContrasena.hasError('minlength') && repetirContrasena.touched) {
+              <p>La CONTRASEÑA no es valida</p>
+          } @else if (repetirContrasena.valid && repetirContrasena.touched) {
+              <p class="valido">La CONTRASEÑA es fuerte</p>
+          }
+          <br>
+        </div><br>
+
+        <br>
+        @if (contrasena.valid && contrasena.touched) {
+          @if (repetirContrasena.valid && repetirContrasena.touched) {
+            @if (coincidenContrasenas) {
+              <p class="valido">Las CONTRASEÑAS coinciden</p>
+            } @else {
+              <p>Las CONTRASEÑAS NO coinciden</p>
+            }
+          }
+        }
+        <br>
+        @if (mensajeEstado) {
+          <p>{{ mensajeEstado }}</p>
+        }
+        @if (mensajeExito) {
+          <p class="valido">{{ mensajeExito }}</p>
+        }
+        <br>
+        @if (coincidenContrasenas) {
+          <button value="Actualizar" [disabled]="datos.invalid" (click)="actualizarDatos()">Actualizar</button><br>
+        }
+        @else {
+          <button value="Actualizar" disabled>Actualizar</button><br>
+        }
+    </form>
+  </div>
+
+  <!--Mostramos los datos actuales-->
+  <div class="datos">
+    <div class="column">
+      <h4>Nombre</h4>
+      <p>{{usuario.nombre}}</p>
+    </div>
+
+    <div class="column">
+      <h4>Apellido</h4>
+      <p>{{usuario.apellido}}</p>
+    </div>
+
+    <div class="column">
+      <h4>Fecha de nacimiento</h4>
+      <p>{{usuario.fecha_nacimiento}}</p>
+    </div>
+
+    <div class="column">
+      <h4>Nivel</h4>
+      <p>{{usuario.nivel}}</p>
+    </div>
+
+    <div class="column">
+      <h4>Rol</h4>
+      <p>{{usuario.rol}}</p>
+    </div>
+  </div>
+</div>
+<app-footer2></app-footer2>

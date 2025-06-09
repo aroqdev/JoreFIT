@@ -1,0 +1,177 @@
+/* Fuente y estilos base */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.apartado {
+  margin-top: 90px;
+  padding: 10px;
+}
+
+.apartado h4, .apartado span {
+  margin-left: 10px;
+}
+
+.seccion {
+  font-size: 28px;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+.apartado hr {
+  border: none;
+  height: 5px;
+  background-color: #00c6c6;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.valido {
+  color: green;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Boton de retroceso*/
+.return {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.return:hover {
+  background-color: #5a6268;
+}
+
+/* Botones superiores */
+button {
+  margin: 1rem 0.5rem 0 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button i {
+  margin-right: 6px;
+}
+
+/* Formulario */
+form {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  background-color: #f9dfaca8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin: 10px 0 5px;
+  font-weight: 500;
+  text-align: left;
+}
+
+form input,
+form select {
+  width: 100%;
+  height: 30px;
+  border-radius: 7px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+form button {
+  background-color: #00c6c672;
+  border: none;
+  height: 35px;
+  margin-top: 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #008f8f;
+  color: white;
+}
+
+/* Mensaje de error */
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.linea {
+  flex-grow: 1;
+  height: 5px;
+  background-color: #00c6c6;
+  max-width: 250px;
+}
+
+.a .seccion {
+  color: red;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .apartado {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .seccion {
+    font-size: 22px;
+  }
+
+  form {
+    padding: 15px;
+    width: 90%;
+  }
+
+  form label {
+    text-align: center;
+  }
+
+  form input,
+  form select {
+    width: 100%;
+  }
+
+  .a {
+    flex-direction: column;
+    margin: 20px 0;
+  }
+
+  .linea {
+    max-width: 80%;
+  }
+
+  button[routerLink],
+  form button {
+    width: 100%;
+  }
+}

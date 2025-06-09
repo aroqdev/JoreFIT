@@ -1,0 +1,48 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<br>
+<div class="top">
+  <div class="img">
+    <img src="assets/JoreFIT-LOGO.png" alt="" class="icon" routerLink="/"><!--Logo-->
+  </div>
+  <div class="menu">
+    <h1>Area administrativa </h1>
+    <h3>Lista de usuarios</h3>
+  </div>
+</div>
+<hr>
+<div class="navegacion">
+  <div class="navigation">
+    <button class="return" routerLink="/profile/admin"><i class="fa-solid fa-arrow-left"></i></button>
+  </div>
+</div>
+
+@if (mensajeEstado) {
+  <p>{{ mensajeEstado }}</p>
+}
+@if (mensajeExito) {
+  <p class="valido">{{ mensajeExito }}</p>
+}
+
+@for (usuario of usuarios; track $index) {
+  @if (usuario.rol == 'Usuario') {
+    <div class="users">
+      <!-- Tarjeta del Usuario Juan -->
+      <div class="userCard">
+        <div class="datos">
+          <h4><strong>Nombre:</strong> {{ usuario.nombre }}</h4>
+          <h4><strong>Apellido:</strong> {{ usuario.apellido }}</h4>
+          <h4><strong>Correo:</strong> {{ usuario.correo }}</h4>
+          <h4><strong>Nivel:</strong> {{ usuario.nivel }}</h4>
+        </div>
+        <br> <!-- Salto de línea antes de las opciones -->
+        <div class="options">
+          <button class="gestion" [routerLink]="usuario.id"><i class="fas fa-pen"></i> Modificar</button>
+          <button class="see" [routerLink]="['/admin/planAsig', usuario.id]"><i class="fas fa-eye"></i> Ver planes</button>
+          <button class="delete" (click)="eliminar(usuario.id)"><i class="fas fa-trash"></i> Eliminar</button>
+        </div>
+      </div>
+    </div>
+  }
+} <br>
+<app-footer2></app-footer2>

@@ -1,0 +1,160 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <h4>Perfil / Datos de usuario</h4>
+  <span class="seccion">Actualización de datos del usuario: {{ usuario.nombre }}</span>
+  <hr>
+  <button class="return" routerLink="/admin/users"><i class="fa-solid fa-arrow-left"></i></button>
+  <div class="top">
+    <div class="info">
+      <i class="fa-duotone fa-solid fa-circle-info note"></i>
+      <p>Los valores actuales están visibles en los campos de texto</p>
+    </div>
+  </div>
+
+<div class="cuerpo">
+  <div class="formularios">
+    <form [formGroup]="update">
+      <div class="form-container">
+
+        <!-- DATOS PERSONALES -->
+        <div class="datos">
+          <div class="titulo">
+            <h3>Datos personales</h3><i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div class="form_content">
+            <h3>Actualizacion de usuario</h3>  
+            <div class="form">
+              <label for="name">Nombre <i class="fa-solid fa-user-tie"></i></label>            
+              <input type="text" name="nombre" id="nombre" placeholder={{usuario.nombre}} formControlName="nombre">
+              @if (nombre.hasError('maxlength') && nombre.touched) {
+                <p>El NOMBRE es muy largo</p>
+              }
+            </div>
+
+            <div class="form">
+              
+              <label for="surname">Apellido <i class="fa-solid fa-user-tie"></i></label>            
+              <input type="text" name="apellido" id="apellido" placeholder={{usuario.apellido}} formControlName="apellido">
+              @if (apellido.hasError('maxlength') && apellido.touched) {
+                <p>El APELLIDO es muy largo</p>
+              }
+            </div>
+
+            <div class="form">
+              
+              <label for="email">Correo electrónico <i class="fa-solid fa-envelope"></i></label>            
+              <input type="email" name="correo" id="correo" placeholder={{usuario.correo}} formControlName="correo">
+              @if (correo.hasError('email') && correo.touched) {
+                <p>El CORREO no es válido</p>
+              }
+            </div>
+
+            <div class="form">
+              <label for="phone">Contraseña <i class="fa-solid fa-lock"></i></label>            
+              <input type="text" name="contrasena" id="contrasena" placeholder={{usuario.contrasena}} formControlName="contrasena">
+              @if (contrasena.hasError('contrasenaFuerte') && contrasena.touched) {
+                <p>La CONTRASEÑA no es fuerte</p>
+              } @else if ((contrasena.hasError('maxlength') || contrasena.hasError('minlength')) && contrasena.touched) {
+                <p>La CONTRASEÑA no es válida</p>
+              } @else if (contrasena.valid && contrasena.touched) {
+                <p class="valido">La CONTRASEÑA es fuerte</p>
+              }
+            </div>
+
+            <div class="form">
+              <label for="phone">Repetir contraseña <i class="fa-solid fa-lock"></i></label>            
+              <input type="text" name="repetirContrasena" id="repetirContrasena" placeholder={{usuario.contrasena}} formControlName="repetirContrasena" (keyup)="coincideContrasena()">
+              @if (repetirContrasena.hasError('contrasenaFuerte') && repetirContrasena.touched) {
+                <p>La CONTRASEÑA no es fuerte</p>
+              } @else if ((repetirContrasena.hasError('maxlength') || repetirContrasena.hasError('minlength')) && repetirContrasena.touched) {
+                <p>La CONTRASEÑA no es válida</p>
+              } @else if (repetirContrasena.valid && repetirContrasena.touched) {
+                <p class="valido">La CONTRASEÑA es fuerte</p>
+              }
+            </div>
+
+            <div class="form">
+              <label for="address">Fecha de nacimiento <i class="fa-solid fa-calendar-days"></i></label>            
+              <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" formControlName="fecha_nacimiento">
+            </div><br>
+            <button value="Actualizar" (click)="actualizar()"><i class="fa-solid fa-arrow-up"></i> Actualizar</button>
+          </div> 
+        </div>
+
+        <!-- OTROS DATOS -->
+        <div class="datos">
+          <div class="titulo">
+            <h3>Datos deportivos</h3><i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <div class="form_content">
+            <h3>Actualizacion de datos deportivos</h3>   
+            <!--<div class="form">
+            <label for="altura">Altura (cm) <i class="fa-solid fa-ruler-vertical"></i></label>            
+            <input type="number" min="1" name="altura" id="altura" placeholder={{usuario.altura}} formControlName="altura">
+            </div>-->
+
+          <div class="form">
+            <label for="pesoActual">Peso Actual (kg) <i class="fa-solid fa-weight-scale"></i></label>            
+            <input type="number" min="1" name="pesoActual" id="pesoActual" placeholder={{usuario.pesoActual}} formControlName="pesoActual">
+          </div>
+
+          <div class="form">
+            <label for="pesoObjetivo">Peso Objetivo (kg) <i class="fa-solid fa-weight-scale"></i></label>            
+            <input type="number" name="pesoObjetivo" id="pesoObjetivo" placeholder={{usuario.pesoObjetivo}} formControlName="pesoObjetivo">
+          </div>
+
+          <div class="form">
+            <div class="nivel">
+              <label for="nivel">Nivel <i class="fa-solid fa-chart-line"></i></label>            
+              <select id="nivel" formControlName="nivel">
+                <option value="" disabled selected>--Elije un nivel--</option>
+                <option value="Aficionado">AFICIONADO</option>
+                <option value="Intermedio">INTERMEDIO</option>
+                <option value="Avanzado">AVANZADO</option>
+              </select>
+            </div>
+          </div>
+
+          <br>
+
+          @if (contrasena.valid && contrasena.touched) {
+            @if (repetirContrasena.valid && repetirContrasena.touched) {
+              @if (coincidenContrasenas) {
+                <p class="valido">Las CONTRASEÑAS coinciden</p>
+              } @else {
+                <p>Las CONTRASEÑAS NO coinciden</p>
+              }
+            }
+          }
+
+          <br>
+
+          @if (mensajeEstado) {
+            <p>{{ mensajeEstado }}</p>
+          }
+          @if (mensajeExito) {
+            <p class="valido">{{ mensajeExito }}</p>
+          }
+
+          <br>
+
+          @if (coincidenContrasenas && contrasena.touched) {
+            <br><br><br><br><button value="Actualizar" (click)="actualizar()"><i class="fa-solid fa-arrow-up"></i> Actualizar</button>
+          } @else if (!coincidenContrasenas && contrasena.touched) {
+            <br><br><br><br><button value="Actualizar" disabled><i class="fa-solid fa-arrow-up"></i> Actualizar</button>
+          } @else {
+            <br><br><br><br><button value="Actualizar" (click)="actualizar()"><i class="fa-solid fa-arrow-up"></i> Actualizar</button>
+          }
+          </div>
+            
+
+          
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<br>
+<app-footer2></app-footer2>

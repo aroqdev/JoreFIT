@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<h4>Perfil / Datos de usuario</h4>
+<span class="seccion">Actualizacio de datos</span>
+<hr>
+<button class="return" routerLink="/profile"><i class="fa-solid fa-arrow-left"></i></button><br>
+<div class="cuerpo">
+  <div class="formulario">
+    <form [formGroup]="datos"><br>
+        <i class="fa-solid fa-user-tie admin"></i>
+        <h3>Datos personales</h3><br>
+
+        <div class="form">
+          <label for="name" >Nombre</label>
+          <i class="fa-solid fa-user-tie"></i>
+          <input type="text" name="nombre" id="nombre" placeholder="{{usuario.nombre}}"  formControlName="nombre">
+          @if (nombre.hasError('maxlength') && nombre.touched) {
+            <p>El NOMBRE es muy largo</p>
+          }
+          <br>
+        </div>
+
+        <div class="form">
+          <label for="surname">Apellido</label>
+          <i class="fa-solid fa-user-tie"></i>
+          <input type="text" name="apellido" id="apellido" placeholder="{{usuario.apellido}}" formControlName="apellido">
+          @if (apellido.hasError('maxlength') && apellido.touched) {
+            <p>El APELLIDO es muy largo</p>
+          }
+          <br>
+        </div>
+
+        <div class="form">
+          <label for="email">Correo electrónico</label>
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" name="correo" id="correo" placeholder="{{usuario.correo}}" formControlName="correo">
+          @if (correo.hasError('email') && correo.touched) {
+            <p>El CORREO no es valido</p>
+          }
+          <br>
+        </div>
+
+        <div class="form">
+          <label for="phone">Contraseña</label>
+          <i class="fa-solid fa-lock"></i>
+          <input type="text" name="contrasena" id="contrasena" placeholder="{{usuario.contrasena}}" formControlName="contrasena">
+          @if (contrasena.hasError('contrasenaFuerte') && contrasena.touched) {
+              <p>La CONTRASEÑA no es fuerte</p>
+          } @else if (contrasena.hasError('maxlength') && contrasena.touched || contrasena.hasError('minlength') && contrasena.touched) {
+              <p>La CONTRASEÑA no es valida</p>
+          } @else if (contrasena.valid && contrasena.touched) {
+              <p class="valido">La CONTRASEÑA es fuerte</p>
+          }
+          <br>
+        </div>
+
+        <div class="form">
+          <label for="phone">Repetir contraseña</label>
+          <i class="fa-solid fa-lock"></i>
+          <input type="text" name="repetirContrasena" id="repetirContrasena" placeholder="{{usuario.contrasena}}" formControlName="repetirContrasena" (keyup)="coincideContrasena()">
+          @if (repetirContrasena.hasError('contrasenaFuerte') && repetirContrasena.touched) {
+            <p>La CONTRASEÑA no es fuerte</p>
+          } @else if (repetirContrasena.hasError('maxlength') && repetirContrasena.touched || repetirContrasena.hasError('minlength') && repetirContrasena.touched) {
+              <p>La CONTRASEÑA no es valida</p>
+          } @else if (repetirContrasena.valid && repetirContrasena.touched) {
+              <p class="valido">La CONTRASEÑA es fuerte</p>
+          }
+          <br>
+        </div>
+
+        <div class="form">
+          <label for="address">Fecha de nacimiento</label>
+          <i class="fa-solid fa-calendar-days"></i>
+          <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="{{usuario.fecha_nacimiento}}" formControlName="fecha_nacimiento">
+          <br>
+        </div>
+        <br>
+        @if (contrasena.valid && contrasena.touched) {
+          @if (repetirContrasena.valid && repetirContrasena.touched) {
+            @if (coincidenContrasenas) {
+              <p class="valido">Las CONTRASEÑAS coinciden</p>
+            } @else {
+              <p>Las CONTRASEÑAS NO coinciden</p>
+            }
+          }
+        }
+        <br>
+        @if (mensajeEstado) {
+          <p>{{ mensajeEstado }}</p>
+        }
+        @if (mensajeExito) {
+          <p class="valido">{{ mensajeExito }}</p>
+        }
+        <br>
+        @if (coincidenContrasenas && contrasena.touched) {
+          <button value="Actualizar" (click)="actualizarDatos()"><i class="fa-solid fa-turn-up custom"></i>Actualizar</button><br>
+        }
+        @else if (!coincidenContrasenas && contrasena.touched) {
+          <button value="Actualizar" disabled><i class="fa-solid fa-turn-up custom"></i>Actualizar</button><br>
+        }
+        @else {
+          <button value="Actualizar" (click)="actualizarDatos()"><i class="fa-solid fa-pencil"></i>Actualizar</button><br>
+        }
+    </form>
+  </div>
+  <div class="formulario"><br>
+    <form [formGroup]="personalData">
+        <i class="fa-solid fa-dumbbell"></i>
+        <h3>Otros datos</h3><br>
+        <!--<div class="form">
+          <label for="name">Altura (cm)</label>
+          <i class="fa-solid fa-ruler-vertical"></i>
+          <input type="number" min="1" name="altura" id="altura" placeholder="{{usuario.altura}}" formControlName="altura">
+          <br>
+        </div><br>-->
+
+        <div class="form">
+          <label for="surname">Peso Actual (kg)</label>
+          <i class="fa-solid fa-weight-scale"></i>
+          <input type="number" min="1" name="pesoActual" id="pesoActual" placeholder="{{usuario.pesoActual}}" formControlName="pesoActual">
+          <br>
+        </div><br>
+
+        <div class="form">
+          <label for="email">Peso Objetivo (kg)</label>
+          <i class="fa-solid fa-weight-scale"></i>
+          <input type="number" name="pesoObjetivo" id="pesoObjetivo" placeholder="{{usuario.pesoObjetivo}}" formControlName="pesoObjetivo">
+          <br>
+        </div><br>
+
+        <div class="form">
+          <label for="phone">Nivel</label>
+          <i class="fa-solid fa-chart-line"></i>
+          <select id="nivel" formControlName="nivel">
+            <option value="" disabled selected>--Elije un nivel--</option>
+            <option value="Aficionado">AFICIONADO</option>
+            <option value="Intermedio">INTERMEDIO</option>
+            <option value="Avanzado">AVANZADO</option>
+          </select>
+        </div><br>
+        <br>
+        @if (mensajeEstado) {
+          <p>{{ mensajeEstado }}</p>
+        }
+        @if (mensajeExito) {
+          <p class="valido">{{ mensajeExito }}</p>
+        }
+        <br>
+        <button value="Actualizar" (click)="actualizarData()" class="formulario2"><i class="fa-solid fa-pencil"></i>Actualizar</button><br>
+    </form>
+  </div>
+</div>
+<app-footer2></app-footer2>

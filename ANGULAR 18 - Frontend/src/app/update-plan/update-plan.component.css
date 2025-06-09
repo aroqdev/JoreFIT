@@ -1,0 +1,215 @@
+/* General */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.apartado {
+  padding: 1.5rem 2rem 1rem;
+  background-color: #f5f5f5;
+}
+
+.apartado h4 {
+  font-size: 20px;
+  color: #333;
+}
+
+.seccion {
+  font-size: 18px;
+  color: #444;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/*Boton de retroceso*/
+.return {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.return:hover {
+  background-color: #5a6268;
+}
+
+/* Botones superiores */
+button {
+  margin: 1rem 0.5rem 0 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button i {
+  margin-right: 6px;
+}
+
+button.add {
+  background-color: #28a745;
+  color: white;
+}
+
+button.add:hover {
+  background-color: #218838;
+}
+
+button.update {
+  background-color: #007bff;
+  color: white;
+}
+
+button.update:hover {
+  background-color: #0056b3;
+}
+
+/* Select de nivel */
+.level {
+  padding: 1rem 2rem;
+  font-size: 16px;
+}
+
+#level {
+  padding: 0.3rem;
+  font-size: 14px;
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Mensajes */
+.valido {
+  color: green;
+  font-weight: bold;
+  margin-left: 2rem;
+}
+
+p {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-size: 15px;
+}
+
+/* Tarjeta de ejercicio */
+.ejercicio {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  margin: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.imagenEjer {
+  flex: 1 1 200px;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.entrenamiento {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.contenido {
+  flex: 2 1 300px;
+  padding: 1.2rem;
+}
+
+.contenido h2 {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.contenido h5 {
+  font-size: 14px;
+  color: #555;
+  margin: 0.2rem 0;
+}
+
+.series {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.gestion {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btnUpdate {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.btnUpdate:hover {
+  background-color: #e0a800;
+}
+
+.btnDelete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btnDelete:hover {
+  background-color: #c82333;
+}
+
+/* Mensajes vacíos o error */
+.a {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.linea {
+  border-top: 1px solid #ccc;
+  margin: 1rem auto;
+  width: 60%;
+}
+
+/* Footer push */
+.submit {
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ejercicio {
+    flex-direction: column;
+  }
+
+  .imagenEjer, .contenido {
+    width: 100%;
+    max-width: none;
+  }
+
+  .series {
+    flex-direction: column;
+  }
+
+  .gestion {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    text-align: center;
+  }
+}

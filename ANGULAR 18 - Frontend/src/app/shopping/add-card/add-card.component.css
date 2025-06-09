@@ -1,0 +1,92 @@
+.todo {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.add {
+  float: left;
+  margin-left: 10px;
+  background-color: #289fa7;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add:hover {
+  background-color: #218838;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+form label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #444;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+p {
+  color: #d9534f;
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.send {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.send:disabled {
+  background-color: #b0c4de;
+  cursor: not-allowed;
+}
+
+.send:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.more {
+  font-size: 20px;
+}

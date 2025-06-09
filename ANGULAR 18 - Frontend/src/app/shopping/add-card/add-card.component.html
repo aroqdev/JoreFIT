@@ -1,0 +1,43 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<button class="add" [routerLink]="['/profile/pago', selectedPlan?.nombre]"><i class="fa-solid fa-backward"></i></button>
+<div class="todo">
+  <div class="body">
+    <h2 class="title">Agregar una tarjeta</h2>
+    <form [formGroup]="tarjeta">
+      <label for="">Nombre del titular</label>
+      <input type="text" id="nombre" formControlName="nombre"><br>
+      @if (nombre.hasError('required') && nombre.touched) {
+        <p>El NOMBRE es obligatorio</p>
+      } @else if (nombre.hasError('maxlength') && nombre.touched) {
+        <p>El NOMBRE es demasiado largo</p>
+      }
+
+      <label for="">Numero de la tarjeta</label>
+      <input type="text" id="numero" formControlName="numero"><br>
+      @if (numero.hasError('required') && numero.touched) {
+        <p>El NUMERO es obligatorio</p>
+      } @else if (numero.hasError('maxlength') && numero.touched) {
+        <p>El NUMERO es demasiado largo</p>
+      }
+
+      <label for="">Caducidad</label>
+      <input type="month" id="vencimiento" formControlName="vencimiento"><br>
+      @if (vencimiento.hasError('required') && vencimiento.touched) {
+        <p>La FECHA es obligatorio</p>
+      }
+
+      <label for="">Codigo</label>
+      <input type="text" id="codigo" formControlName="codigo"><br>
+      @if (codigo.hasError('required') && codigo.touched) {
+        <p>El CODIGO es obligatorio</p>
+      } @else if (codigo.hasError('maxlength') && codigo.touched) {
+        <p>El CODIGO es demasiado largo</p>
+      }
+    </form><br><br>
+
+    <div class="buttons">
+      <button class="send" [disabled]="tarjeta.invalid" (click)="guardar()">Guardar tarjeta</button><br><br>
+    </div>
+
+  </div>

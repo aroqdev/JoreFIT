@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+@if(selectedEjercicio) {
+  <div class="apartado">
+    <h4>Administración / Gestion de ejercicio</h4>
+    <span class="seccion" aria-label="Gestion de planes">Ejercicio de {{ selectedEjercicio.nombres }}</span>
+    <hr>
+  </div>
+  <button [routerLink]="['/admin/plans', selectedEjercicio.tipo]" class="return"><i class="fa-solid fa-arrow-left"></i></button>
+
+  @if (mensajeEstado) {
+    <p>{{ mensajeEstado }}</p>
+  }
+  @if (mensajeExito) {
+    <p class="valido">{{ mensajeExito }}</p>
+  }
+
+  <form [formGroup]="update">
+    <!-- Nombre del producto -->
+    <label for="imagen">Imagen (URL)</label>
+    <input type="text" id="imagen" formControlName="imagen"><br>
+
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" formControlName="nombre"><br>
+
+    <label for="descripcion">Descripcion</label>
+    <input type="text" id="descripcion" formControlName="descripcion"><br>
+
+    <label for="series">Series</label>
+    <input type="number" min="1" id="series" formControlName="series"><br>
+
+    <label for="repeticiones">Repeticiones</label>
+    <input type="text" id="repeticiones" formControlName="repeticiones"><br>
+
+    <label for="tipo">Tipo</label>
+    <select id="tipo" formControlName="tipo">
+      <option value="" disabled selected>--Elije un nivel--</option>
+    @for (item of planes; track $index) {
+      <option [value]="item.nombre">{{ item.nombre }}</option>
+    }
+    </select><br>
+
+    <label for="musculo">Musculo</label>
+    <select id="musculo" formControlName="musculo">
+      <option value="" disabled selected>--Elije un musculo--</option>
+      <option value="Pecho">Pecho</option>
+      <option value="Espalda">Espalda</option>
+      <option value="Brazo">Brazo</option>
+      <option value="Pierna">Pierna</option>
+      <option value="Corporal">Corporal</option>
+    </select><br>
+
+    <label for="intensidad">Intensidad</label>
+    <select id="intensidad" formControlName="intensidad">
+      <option value="" disabled selected>--Elije una intensidad--</option>
+      <option value="Leve">Leve</option>
+      <option value="Media">Media</option>
+      <option value="Alta">Alta</option>
+    </select><br><br>
+
+    <button [disabled]="update.invalid" (click)="actualizar()">Actualizar</button>
+  </form>
+}
+@else {
+  <div class="a">
+    <div class="linea"></div>
+      <span class="seccion">¡ERROR! AL BUSCAR EL EJERCICIO</span>
+    <div class="linea"></div>
+  </div>
+}
+<br>
+<app-footer2></app-footer2>
