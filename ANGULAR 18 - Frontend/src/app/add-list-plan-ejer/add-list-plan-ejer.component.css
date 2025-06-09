@@ -1,0 +1,165 @@
+/*Imports de fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+*{
+  font-family:'Rubik';
+}
+
+.apartado{
+  margin-top: 100px;
+}
+
+.apartado span{
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.apartado hr{
+  border: none;
+  height: 5px;
+  background-color: #00c6c6;
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+
+.seccion{
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15px;
+  margin-top: -15px;
+}
+
+.a{
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.ejercicio{
+  display: flex;
+  background-color: rgb(215, 215, 215);
+  margin: 10px;
+  border-radius: 20px;
+  width: 60%;
+  justify-self: center;
+}
+
+.entrenamiento{
+  width: 180px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.imagenEjer{
+  width: 30%;
+  text-align: center;
+  mix-blend-mode: multiply;
+}
+
+.level{
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.series{
+  display: flex;
+  margin-left: 50px;
+  gap: 30px;
+  font-weight: bold;
+}
+
+.contenido{
+  font-size: 15px;
+}
+
+.hire{
+  justify-self: center;
+}
+
+.hire button{
+  background-color: #00c6c6;
+  width: 12vw;
+  height: 4vh;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  font-size: 17px;
+}
+
+.return{
+  width: 30px;
+  height: 30px;
+  margin-top: -40px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  float: left;
+  background-color: #00c6c6;
+  border: none;
+  border-radius: 8px;
+}
+
+/*Estilos html*/
+h2{
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive para tablets y móviles */
+@media (max-width: 768px) {
+  .apartado {
+    margin-top: 60px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .apartado span {
+    font-size: 24px;
+    padding-left: 0;
+  }
+
+  .seccion {
+    font-size: 28px;
+  }
+
+  .a {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+  }
+
+  .ejercicio {
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imagenEjer {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .series {
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 15px;
+  }
+
+  .contenido {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .hire button {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}

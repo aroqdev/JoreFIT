@@ -1,0 +1,23 @@
+<div class="apartado">
+  <span class="seccion" aria-label="Mis planes">Nuestros planes</span>
+  <hr>
+  <button routerLink="/profile" class="return"><i class="fa-solid fa-backward"></i></button>
+</div><br>
+
+<div class="planes-container">
+@for (plan of planes; let index = $index; track index) {
+  <div class="card">
+    <div class="titulo">
+      <h3>{{ plan.nombre }}</h3>
+    </div>
+    <img [src]="plan.imagen" alt="Imagen del plan" style="width:100%">
+    <div class="container">
+      <p>Precio: {{plan.precio}}€<p></p>
+      <button class="seeMore" [routerLink]="plan.nombre">Ver plan</button>
+    </div>
+  </div><br>
+  <br>
+}
+</div>
+
+<app-footer2></app-footer2>

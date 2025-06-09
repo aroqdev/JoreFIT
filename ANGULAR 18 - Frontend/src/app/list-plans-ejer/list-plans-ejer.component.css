@@ -1,0 +1,193 @@
+/*Imports de fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+/**/
+*{
+  font-family:'Rubik';
+}
+
+.apartado{
+  margin-top: 90px;
+  width: 100%;
+  height: 7vh;
+}
+
+.apartado span{
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: 100px;
+}
+
+.apartado hr{
+  border: none;
+  height: 5px;
+  background-color: #04a4a4;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.apartado i{
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+button{
+  margin-left: 10px;
+  background-color: #00c6c6;
+  height: 3vh;
+  border-radius: 7px;
+  border: none;
+}
+.linea{
+  flex-grow: 1;
+  height: 8px;
+  background-color: #00c6c6;
+  max-width: 550px;
+  margin-top: 15px;
+}
+
+.seccion{
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15px;
+  margin-top: -15px;
+}
+
+.return{
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  float: left;
+  background-color: #00c6c6;
+  border: none;
+  border-radius: 8px;
+}
+
+.a{
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.ejercicio{
+  display: flex;
+  background-color: rgb(215, 215, 215);
+  margin: 10px;
+  border-radius: 20px;
+  width: 60%;
+  justify-self: center;
+}
+
+.entrenamiento{
+  width: 180px;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.imagenEjer{
+  width: 200px;
+  text-align: center;
+  mix-blend-mode: multiply; /* o darken */
+}
+
+.level{
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.series{
+  display: flex;
+  gap: 30px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.contenido{
+  font-size: 15px;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/*Estilos html*/
+h2{
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+}
+
+strong{
+  font-weight: bold;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .apartado {
+    margin-top: 50px;
+    width: 95%;
+    height: auto;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .apartado span {
+    font-size: 24px;
+  }
+
+  .apartado i {
+    font-size: 24px;
+  }
+
+  button {
+    height: 4vh;
+    font-size: 14px;
+  }
+
+  .linea {
+    max-width: 100%;
+    height: 5px;
+  }
+
+  .seccion {
+    font-size: 28px;
+  }
+
+  .a {
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .ejercicio {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .imagenEjer {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .series {
+    flex-direction: row;
+    text-align: center;
+    justify-self: center;
+    margin-left: 0;
+    gap: 10px;
+  }
+
+  .contenido {
+    font-size: 14px;
+    text-align: center;
+    justify-self: center;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}

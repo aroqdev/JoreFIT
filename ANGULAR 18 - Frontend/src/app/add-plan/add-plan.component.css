@@ -1,0 +1,324 @@
+/*Imports de fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+*{
+  font-family:'Rubik';
+}
+
+.apartado{
+  margin-top: 100px;
+  width: 100%;
+}
+
+.apartado span{
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.apartado hr{
+  border: none;
+  height: 5px;
+  background-color: #00c6c6;
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+
+.linea{
+  flex-grow: 1;
+  height: 8px;
+  background-color: #00c6c6;
+  max-width: 550px;
+  margin-top: 15px;
+}
+
+.seccion{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15px;
+  margin-top: -15px;
+}
+
+/*Seccion de la lista de planes*/
+.planes-container{
+  width: 97%;
+  justify-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.card{
+  text-align: center;
+  background-color: #474747;
+  height: 66vh;
+  width: 30vw;
+  gap: 10px;
+  margin-bottom: 25vh;
+  border-radius: 10px;
+}
+
+.card:last-child{
+  margin-top: -10vh;
+}
+
+img{
+  margin: 0px;
+  width: 100%;
+  height: 60vh;
+}
+
+.container{
+  margin-top: -2vh;
+  margin-bottom: 20px;
+  height: 100px;
+  background-color:#474747;
+  position: relative;
+  top: -10px; /* Adjust as needed to overlap the image */
+  color: white;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.container p{
+  font-size: 18px;
+  padding-top: 5px;
+  margin-bottom: 2px;
+}
+
+.seeMore{
+  background-color: #ffbe33;
+  width: 18vw;
+  border: none;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 1px;
+}
+
+.a{
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.plan{
+  display: flex;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.titulo{
+  background-color: #00c6c6;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 10px 10px 0px 0px;
+}
+
+h3{
+  font-size: 20px;
+}
+
+.pies{
+  height: 50vh;
+}
+
+.return{
+  width: 30px;
+  height: 30px;
+  margin-top: -40px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  float: left;
+  background-color: #00c6c6;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Imports de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.apartado {
+  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.apartado span {
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.apartado hr {
+  border: none;
+  height: 5px;
+  background-color: #00c6c6;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.linea {
+  flex-grow: 1;
+  height: 8px;
+  background-color: #00c6c6;
+  max-width: 550px;
+  margin-top: 15px;
+}
+
+.seccion {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15px;
+  margin-top: -15px;
+}
+
+/* Sección de la lista de planes */
+.planes-container {
+  width: 97%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px auto;
+}
+
+.card {
+  text-align: center;
+  background-color: #474747;
+  height: 66vh;
+  width: 30vw;
+  gap: 10px;
+  margin-bottom: 25vh;
+  border-radius: 10px;
+}
+
+.card:last-child {
+  margin-top: -10vh;
+}
+
+img {
+  width: 100%;
+  height: 60vh;
+}
+
+.container {
+  height: 100px;
+  background-color: #474747;
+  position: relative;
+  top: -10px;
+  color: white;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+}
+
+.container p {
+  font-size: 18px;
+  padding-top: 5px;
+  margin-bottom: 2px;
+}
+
+.seeMore {
+  background-color: #ffbe33;
+  width: 18vw;
+  border: none;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 1px auto;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+  .card {
+    width: 45%;
+    height: auto;
+    margin-bottom: 10vh;
+  }
+
+  img {
+    height: auto;
+  }
+
+  .container {
+    height: auto;
+    padding: 10px;
+  }
+
+  .seccion {
+    font-size: 18px;
+  }
+
+  .seeMore {
+    width: 50%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .planes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seccion{
+    font-size: 18px;
+  }
+
+  .card {
+    width: 80%;
+    height: auto;
+  }
+
+  .container p {
+    font-size: 16px;
+  }
+
+  .seccion {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .planes-container {
+    width: 90%;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 5vh;
+  }
+
+  img {
+    height: auto;
+  }
+
+  .container {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .seeMore {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .apartado{
+    text-align: left;
+  }
+
+  .apartado span {
+    font-size: 24px;
+  }
+}
+

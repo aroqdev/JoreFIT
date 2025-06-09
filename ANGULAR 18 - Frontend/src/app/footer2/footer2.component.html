@@ -1,0 +1,35 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="footer2">
+  @if (!usuario) {
+    <div class="icono">
+      <img src="assets/JoreFIT-LOGO.png" class="icon" routerLink="/registerAdmin">
+    </div>
+  }
+  @else {
+    @if (usuario.rol == 'Usuario') {
+      <div class="icono">
+        <img src="assets/JoreFIT-LOGO.png" class="icon" routerLink="/profile">
+      </div>
+    }
+    @else {
+      <div class="icono">
+        <img src="assets/JoreFIT-LOGO.png" class="icon" routerLink="/profile/admin">
+      </div>
+    }
+  }
+
+  <h1 class="title">JoreFIT</h1>
+
+  <div class="contacto">
+    <div class="correo">
+      <i class="fa-solid fa-envelope mail"></i>
+      <h5>jorefit&#64;gmail.com</h5>
+    </div>
+    <div class="tlfn">
+      <i class="fa-solid fa-phone phone"></i>
+      <h5> 9876543621</h5>
+    </div>
+  </div>
+</div>

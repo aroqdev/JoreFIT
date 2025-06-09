@@ -1,0 +1,45 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<br>
+<div class="top">
+  <div class="img">
+    <img src="assets/JoreFIT-LOGO.png" alt="" class="icon" routerLink="/"><!--Logo-->
+  </div>
+  <div class="menu">
+    <h1>Area administrativa </h1>
+    <h3>Lista de planes</h3>
+  </div>
+</div>
+<hr>
+<div class="navigation">
+  <button class="return" routerLink="/profile/admin"><i class="fa-solid fa-arrow-left"></i></button>
+</div>
+
+@if (mensajeEstado) {
+  <p>{{ mensajeEstado }}</p>
+}
+@if (mensajeExito) {
+  <p class="valido">{{ mensajeExito }}</p>
+}
+
+<div class="planes-container">
+  @for (plan of planes; let index = $index; track index) {
+    <div class="userCard">
+      <div class="content">
+        <img [src]="plan.imagen" alt="Imagen del plan" class="planImg">
+        <div class="titulo">
+          <h3>{{ plan.nombre }}</h3>
+          <div class="info">
+            <h4 class="duration"><span>Duración:</span> {{ plan.duracion }} meses</h4>
+            <h4 class="price"><span>Precio:</span> {{ plan.precio }} €</h4>
+          </div>
+          <div class="options">
+            <button class="gestion" [routerLink]="plan.nombre"><i class="fas fa-pen"></i>Modificar</button>
+            <button class="delete" (click)="eliminar(plan.id)"><i class="fas fa-trash"></i>Eliminar</button>
+          </div>
+        </div><br>
+      </div>
+    </div>
+  }
+</div>
+<app-footer2></app-footer2>

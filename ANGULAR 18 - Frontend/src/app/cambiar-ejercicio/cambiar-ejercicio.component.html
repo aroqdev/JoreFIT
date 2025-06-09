@@ -1,0 +1,34 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="apartado">
+  <button [routerLink]="['/profile', ejercicio.idPlan]" class="return"><i class="fa-solid fa-arrow-left"></i></button>
+  <span class="seccion" aria-label="Mis planes"><strong>Cambiar ejercicio:  {{ ejercicio.ejercicio.nombres }}</strong></span>
+  <i class="fa-solid fa-clipboard clip"></i>
+  <hr>  
+</div>
+  <div class="contenido">
+    @if (mensajeEstado) {
+      <p>{{ mensajeEstado }}</p>
+    }
+    @for (cambio of cambiarEjercicios; track $index) {
+      <div class="ejercicio">
+          <div class="imagenEjer">
+            <img [src]="cambio.imagen" class="entrenamiento">
+          </div>
+          <div class="contenido">
+            <h2>{{ cambio.nombres }}</h2>
+            <p>{{ cambio.descripcion }}</p>
+            <div class="series">
+              <p><strong>SERIES </strong>{{ cambio.series }}</p>
+              <p><strong>REPETICIONES </strong>{{ cambio.repeticiones }}</p>
+            </div>
+              <div class="botonesEjer">
+                <button class="botonCom" aria-label="Completado" (click)="cambiar(cambio.id)">Selecionar <i class="fa-solid fa-check"></i></button>
+              </div>
+          </div>
+      </div>
+    }
+  </div>
+<br>
+<app-footer2></app-footer2>

@@ -1,0 +1,302 @@
+/*Imports de fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+/**/
+*{
+  font-family:'Rubik';
+}
+
+img{
+  width: 100%;
+  height: 70vh;
+}
+
+button{
+  margin-left: 10px;
+  background-color: #00c6c6;
+  height: 3vh;
+  border-radius: 7px;
+  border: none;
+}
+
+.title{
+  background-color: none;
+  margin-top: -40vh;
+  color:#04c6c6;
+  justify-self: center;
+  font-size: 30px;
+}
+
+.subtitle{
+  height: 15vh;
+  margin-top: -2vh;
+}
+
+h3.lowText{
+  width: 100%;
+  color:#04c6c6;
+  font-family: Helvetica;
+}
+
+.title h1{
+  font-weight: lighter;
+}
+
+.apartado{
+  margin-top: 90px;
+  width: 100%;
+  height: 10vh;
+}
+
+.apartado span{
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.apartado hr{
+  border: none;
+  height: 5px;
+  background-color: #04a4a4;
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+
+.apartado i{
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.planes-container{
+  width: 100%;
+  justify-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10vw;
+  margin-bottom: 20px;
+}
+
+.return{
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  float: left;
+  background-color: #00c6c6;
+  border: none;
+  border-radius: 8px;
+}
+
+.titulo{
+  background-color: #00c6c6;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 7px 7px 0px 0px;
+}
+
+.card{
+  background-color: #474747;
+  height: 95%;
+  width: 30%;
+  text-align: center;
+  border-radius: 7px;
+}
+
+.subtitle2{
+  height: 1vh;
+  width: 15vw;
+  padding: 10vh;
+  margin-left: -4vw;
+  padding-top: 1vh;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16;
+}
+
+h2.text{
+  margin-top: 3vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  width: 92vw;
+  vertical-align: middle;
+  background-color: #828282;
+  font-size: 30px;
+  font-family: Helvetica;
+  color: white;
+}
+
+.texto{
+  display: flex;
+  width:  70%;
+  margin-top: 8vh;
+  margin-left: 15vw;
+  text-align: center;
+}
+
+.encabezado2{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.linea {
+  flex-grow: 1;
+  height: 8px;
+  background-color: #00c6c6;
+  max-width: 550px;
+}
+
+.seccion {
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.rutina{
+  width: 30vw;
+  margin-left: 0vw;
+}
+
+.plan{
+  display: flex;
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+h3{
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+.seeMore{
+  background-color: #EFB22F;
+  width: 18vw;
+  border: none;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.seePlans{
+  background-color: #EFB22F;
+  width: 35vw;
+  border: none;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 5px;
+  justify-items: center;
+}
+
+.verMas{
+  justify-items: center;
+  text-align: center;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .card {
+    width: 80%; /* Ajustar el ancho de las tarjetas */
+    height: auto; /* Ajustar la altura automáticamente */
+    margin: 10px auto; /* Centrar las tarjetas */
+  }
+
+  .card img{
+    height: auto; /* Ajustar la altura de las imágenes */
+  }
+
+  .planes-container {
+    flex-direction: column; /* Cambiar a diseño en columna */
+    width: 80%; /* Ajustar el ancho del contenedor */
+    justify-self: center; /* Centrar el contenedor */
+    align-items: center; /* Centrar los elementos */
+  }
+
+  .titulo {
+    font-size: 18px; /* Reducir el tamaño de la fuente */
+    padding: 10px; /* Ajustar el relleno */
+  }
+
+  button.seeMore {
+    width: 90%; /* Ajustar el ancho de los botones */
+    height: 5vh;
+    font-size: 16px; /* Reducir el tamaño de la fuente */
+  }
+
+  .texto {
+    width: 90%; /* Ajustar el ancho del texto */
+    margin-left: 5%; /* Centrar el texto */
+    margin-top: 5vh; /* Reducir el margen superior */
+  }
+
+  h2.text {
+    font-size: 24px; /* Reducir el tamaño de la fuente */
+    padding: 3vh; /* Ajustar el relleno */
+  }
+
+  .encabezado2 {
+    flex-direction: column; /* Cambiar a diseño en columna */
+    gap: 5px; /* Reducir el espacio entre elementos */
+  }
+
+  .linea {
+    height: 5px; /* Reducir el grosor de la línea */
+  }
+
+  .seccion {
+    font-size: 28px; /* Reducir el tamaño de la fuente */
+  }
+
+  .apartado{
+    margin-top: 50px;
+    width: 95%;
+    height: auto;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .apartado span {
+    font-size: 24px;
+  }
+
+  .apartado i {
+    font-size: 24px;
+  }
+
+  .container{
+    height: 3.7em;
+  }
+
+  .seeMore{
+    margin-top: 6px;
+  }
+}
+
+/* Diseño responsivo para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* Usar todo el ancho disponible */
+    margin: 5px auto; /* Reducir el margen */
+  }
+
+  .seeMore, .seePlans {
+    font-size: 14px; /* Reducir aún más el tamaño de la fuente */
+    height: 4vh; /* Ajustar la altura */
+  }
+
+  h2.text {
+    font-size: 20px; /* Reducir el tamaño de la fuente */
+  }
+
+  .seccion {
+    font-size: 24px; /* Reducir el tamaño de la fuente */
+  }
+}

@@ -1,0 +1,113 @@
+.footer2{
+  background-color: #474747;
+  display: flex;
+  color: white;
+}
+
+img.icon{
+  width: 9vw;
+  height: auto;
+  min-height: 9vh;
+  min-width: 9vh;
+  margin: 1vh;
+}
+
+.title{
+  padding-top: 3.2vh;
+  margin-left: 35vw;
+  text-align: center;
+}
+
+.contacto{
+  margin-left: 25%;
+  display: grid;
+}
+
+.correo, .tlfn{
+  float: right;
+  display: flex;
+  margin-right: 20px;
+}
+
+.mail{
+  width: auto;
+  height: 40px;
+  margin-top: 21px;
+  font-size: 20px;
+}
+
+.phone{
+  width: auto;
+  height: 40px;
+  margin-top: 21px;
+  margin-left: 0vw;
+  font-size: 20px;
+}
+
+.mail, .phone{
+  color: #15CCCC;
+}
+
+h5{
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img.icon {
+    width: 15vw;
+    min-height: 7vh;
+    min-width: 7vh;
+    margin: 2vh auto;
+  }
+
+  .title {
+    margin-left: 0;
+    padding-top: 1vh;
+    font-size: 28px;
+  }
+
+  .contacto {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .correo, .tlfn {
+    float: none;
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .correo h5, .tlfn h5 {
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: 15px;
+    width: 40vw;
+  }
+
+  i.mail, i.phone {
+    font-size: 18px;
+    margin-top: 0px;
+  }
+
+  h5 {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .img.icon {
+    width: 20vw;
+    min-height: 5vh;
+    min-width: 5vh;
+  }
+
+  .mail, .phone {
+    font-size: 14px;
+  }
+}

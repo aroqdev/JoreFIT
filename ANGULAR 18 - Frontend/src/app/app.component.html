@@ -1,0 +1,24 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="header">
+  <img src="assets/JoreFIT-LOGO.png" alt="" class="icon" routerLink="/">
+  <h1 class="title">JoreFIT</h1>
+  <div class="gestion">
+    @if (!usuario) {
+      <button class="gestiones" routerLink="/login">Empieza ya! <i class="fa-solid fa-user-plus"></i></button>
+      <button class="gestiones" routerLink="/register">Registro <i class="fa-solid fa-right-to-bracket"></i></button>
+    }
+    @else {
+      @if (usuario.rol == 'Usuario') {
+        <button class="profile" routerLink="/profile"><i class="fa-solid fa-user"></i></button>
+      }
+      @else {
+        <button class="profile" routerLink="/profile/admin"><i class="fa-solid fa-user"></i></button>
+      }
+    }
+  </div>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!--Encabezado del perfil-->
+<div class="header">
+  <br>
+</div>
+<!--Divicion que contendra la seccion que muestra la imagen de perfil del usuario-->
+<div class="imagen">
+  <!--Imagen de perfil del usuario-->
+  <img src="assets/pfp.png" alt="Imagen de perfil" class="pfp">
+</div>
+
+<div class="datos">
+  <div class="userData">
+    <div class="name">
+    <!--Nombre real del usuario-->
+    <i class="fa-solid fa-address-book"></i><p>{{ usuario.nombre }} {{ usuario.apellido }}</p>
+    </div>
+    <div class="name">
+    <!--Nombre de usuario-->
+    <i class="fa-solid fa-envelope"></i><p>{{ usuario.correo }}</p>
+    </div><br>
+  </div>
+  <div class="botones">
+    <!--Boton para editar los datos del usuario-->
+    <button aria-label="Editar perfil" class="boton" routerLink="/profile/update">Editar <i class="fa-solid fa-user-pen"></i></button>
+    <!--Boton para cerrar sesion-->
+    <button aria-label="Cerrar sesión" class="boton" (click)="logout()">Cerrar sesión <i class="fa-solid fa-door-open"></i></button>
+  </div>
+</div>
+  <div class="apartado">
+    <span class="seccion" aria-label="Mis planes">Mis planes</span>
+    <hr>
+  </div>
+
+@if (todosPlanesCompletados()) {
+  <!--Listado de planes-->
+  <div class="addPlan">
+    <button class="botonPlan" aria-label="Agregar plan" routerLink="/profile/addPlan">Agregar plan <i class="fa-solid fa-plus"></i></button>
+  </div>
+}
+@else if (misPlanes.length == 0) {
+  <!--Listado de planes-->
+  <div class="addPlan">
+    <button class="botonPlan" aria-label="Agregar plan" routerLink="/profile/addPlan">Agregar plan <i class="fa-solid fa-plus"></i></button>
+  </div>
+}
+
+@if (misPlanes.length < 1) {
+  <div class="apartado">
+    <p class="seccion" aria-label="Mis planes">No hay planes contratados</p>
+  </div>
+}
+
+@for (miPlan of misPlanes; track $index) {
+  <!-- Tarjetas de varios planes -->
+  <div class="plan">
+    <!--Trageta 1-->
+    <div class="card">
+      <div class="titulo">
+        <h3 aria-label="Ganancia muscular">{{ miPlan.plan.nombre }}</h3>
+      </div>
+      <img [src]="miPlan.plan.imagen" alt="Avatar" class="imgPlan">
+      <div class="pie">
+        <div class="extraData">
+          <p>Nivel: {{ usuario.nivel }}</p>
+          <p>Peso objetivo: {{ usuario.pesoObjetivo }}</p>
+          @if (!miPlan.completado) {
+            <p>EN CURSO</p><br>
+          }
+          @else {
+            <p>COMPLETADO</p>
+          }
+        </div>
+        <button class="asignados" [routerLink]="miPlan.idPlan">Ver plan</button>
+      </div>
+    </div>
+  </div>
+}
+<br><br><br><br><br><br>
+
+<!--Mostrar el pie de pagina-->
+<app-footer2></app-footer2>

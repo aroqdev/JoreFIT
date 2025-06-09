@@ -1,0 +1,124 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="body"><br>
+  <div class="recPwd">
+    <br>
+    <!--Pintamos cada hr en funcion de en que parte del processo se encuentra el usuario-->
+    @if(!correoVerificado) {
+      <div class="progress">
+        <hr class="p1">
+        <hr class="p2">
+        <hr class="p2">
+      </div>
+    }
+
+    @else if(!codigoVerificado) {
+        <div class="progress">
+            <hr class="p1">
+            <hr class="p1">
+            <hr class="p2"> 
+        </div>
+    }
+
+    @else if(!contrasenaCambiada) {
+        <div class="progress">
+            <hr class="p1">
+            <hr class="p1">
+            <hr class="p1">
+        </div>
+    }
+    
+    <div class="logo">
+      <i class="fa-solid fa-lock block"></i>
+    </div>
+    <div class="form">
+      @if (!correoVerificado) {
+        <div class="content">
+          <h3 class="title">Recuperar Contraseña</h3>
+          <form [formGroup]="validarCorreo">
+              <label for="correo" class="campos">Correo electrónico</label><br><br>
+
+              <div class="correo">
+                <i class="fa-solid fa-envelope mail"></i>
+                <input type="text" class="campos" placeholder="Correo electrónico" [(ngModel)]="correoS" id="correo" formControlName="correo">
+              </div>
+              
+
+              @if (correo.hasError('required') && correo.touched) {
+                  <p>El CORREO es obligatorio</p>
+              } @else if (correo.hasError('correoNoExiste') && correo.touched) {
+                <p>El CORREO no esta registrado</p>
+              } @else if (correo.hasError('email') && correo.touched) {
+                  <p>El CORREO no es válido</p>
+              } @else if (correo.hasError('maxlength') && correo.touched) {
+                  <p>El CORREO es muy largo</p>
+              }<br><br>
+              <button [disabled]="validarCorreo.invalid" (click)="enviarCorreo()">ENVIAR CODIGO</button>
+          </form>
+        </div>
+      }
+      @else if (!codigoVerificado) {
+        <div class="content">
+            <h3 class="title">Recuperar Contraseña</h3><br>
+            <label for="correo" class="campos">Codigo de recuperacion</label><br><br>
+            <input type="text" class="campos" placeholder="Codigo de verificacion de 5 digitos" class="form-control" [(ngModel)]="codigo"><br>
+            <p *ngIf="mensajeError">{{ mensajeError }}</p><br>
+            <button (click)="verificarCodigo(codigo)" class="enviar">VERIFICAR CODIGO</button>
+        </div>
+      }
+      @else if (!contrasenaCambiada) {
+        <div class="content">
+            <h3 class="title">Recuperar Contraseña</h3>
+            <form [formGroup]="validarContrasena">
+                <label for="correo" class="campos">Nueva contraseña</label>
+                <input type="text" class="campos" placeholder="Nueva contraseña" [(ngModel)]="contrasenaS" id="contrasena" formControlName="contrasena">
+                  @if (contrasena.hasError('required') && contrasena.touched) {
+                      <p>La CONTRASEÑA es obligatorio</p>
+                  } @else if (contrasena.hasError('contrasenaFuerte') && contrasena.touched) {
+                      <p>La CONTRASEÑA no es valida</p>
+                  } @else if (contrasena.hasError('maxlength') && contrasena.touched || contrasena.hasError('minlength') && contrasena.touched) {
+                      <p>La CONTRASEÑA no es valida</p>
+                  } @else if (contrasena.valid && contrasena.touched) {
+                      <p class="valido">La CONTRASEÑA es fuerte</p>
+                  } <br>
+
+                <label for="correo" class="campos">Repetir nueva contraseña</label>
+                <input type="text" class="campos" placeholder="Repetir contraseña" [(ngModel)]="repetirContrasenaS" (keyup)="coincidirContrasena()" id="repetirContrasena" formControlName="repetirContrasena">
+                @if (repetirContrasena.hasError('required') && repetirContrasena.touched) {
+                    <p>La CONTRASEÑA es obligatorio</p>
+                } @else if (repetirContrasena.hasError('contrasenaFuerte') && repetirContrasena.touched) {
+                    <p>La CONTRASEÑA no es valida</p>
+                } @else if (repetirContrasena.hasError('maxlength') && repetirContrasena.touched || contrasena.hasError('minlength') && contrasena.touched) {
+                    <p>La CONTRASEÑA no es valida</p>
+                } @else if (repetirContrasena.valid && repetirContrasena.touched) {
+                    <p class="valido">La CONTRASEÑA es fuerte</p>
+                }
+                <br>
+
+                @if (contrasena.valid && contrasena.touched) {
+                    @if (repetirContrasena.valid && repetirContrasena.touched) {
+                        @if (coincidenContrasenas) {
+                            <p class="valido">Las CONTRASEÑAS coinciden</p>
+                        } @else {
+                            <p>Las CONTRASEÑAS NO coinciden</p>
+                        }
+                    }
+                }
+                @if (mensajeError) {
+                  <p>{{ mensajeError }}</p>
+                }
+                <button [disabled]="validarContrasena.invalid" (click)="verificarContrasena()">CAMBIAR CONTRASEÑA</button>
+            </form>
+        </div>
+      }
+      @else if (codigoVerificado) {
+        <div class="content">
+            <h3 class="title">Contraseña Recuperada</h3>
+            <label for="correo" class="campos">Contraseña cambiada con exito</label><br>
+            <button routerLink="/login" class="validar">INICIAR SESION</button>
+        </div>
+      }
+    </div>
+  </div><br><br>
+</div>

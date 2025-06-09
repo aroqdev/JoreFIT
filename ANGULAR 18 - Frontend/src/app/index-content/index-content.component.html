@@ -1,0 +1,47 @@
+<div class="contenido">
+  <div class="head">
+    <img src="assets/indexImage.jpg">
+    <div class="title">
+      <h1>Encuentra tu rutina ideal</h1>
+    </div>
+  </div>
+  <div class="subtitle">
+    <!-- Subtitulo -->
+    <div class="texto">
+      <h3 class="lowText">El mejor sitio web para ponerte en forma, sin importar tu nivel ni habilidad.</h3>
+    </div>
+  </div>
+   <!-- Seccion de planes -->
+   <div class="planes">
+    <!-- Titulo del apartado -->
+    <div class="apartado">
+      <span class="seccion" aria-label="Mis planes">Conoce nuestros planes</span>
+      <hr>
+    </div>
+
+  <!-- Targetas de varios planes -->
+  <div class="planes-container">
+      @for (plan of planes; let index = $index; track index) {
+        <!--Se muestran una cantidad limitada de planes-->
+        @if(index != 3) {
+        <div class="card">
+          <div class="titulo">
+            <h3>{{ plan.nombre }}</h3>
+          </div>
+          <img [src]="plan.imagen" alt="Imagen del plan">
+          <div class="container">
+            <p><strong>Precio: </strong>{{plan.precio}}€<p></p>
+            <!--<button class="seeMore" [routerLink]="plan.nombre">Ver plan</button>-->
+          </div>
+        </div>
+        }
+      }
+  </div>
+
+  <div class="verMas">
+    <button class="seePlans" routerLink="/listPlans">Ver mas planes</button>
+  </div>
+    <br>
+
+    <app-footer></app-footer>
+</div>

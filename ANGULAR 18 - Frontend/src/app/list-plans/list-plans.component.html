@@ -1,0 +1,25 @@
+ <!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <div class="apartado">
+    <span class="seccion" aria-label="Mis planes">Nuestros planes</span>
+    <i class="fa-solid fa-clipboard"></i>
+    <hr>
+  </div>
+  <button routerLink="/" class="return"><i class="fa-solid fa-backward"></i></button>
+
+<div class="planes-container">
+  @for (plan of planes; let index = $index; track index) {
+    <div class="card">
+      <div class="titulo">
+        <h3>{{ plan.nombre }}</h3>
+      </div>
+      <img [src]="plan.imagen" alt="Imagen del plan">
+      <div class="container">
+        <button class="seeMore" [routerLink]="plan.nombre">Saber más</button>
+      </div>
+    </div>
+  }
+</div>
+
+<app-footer2></app-footer2>

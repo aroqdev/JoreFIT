@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<br>
+<div class="top">
+  <div class="img">
+    <img src="assets/JoreFIT-LOGO.png" alt="" class="icon" routerLink="/"><!--Logo-->
+  </div>
+  <div class="menu">
+    <h1>Area administrativa </h1>
+    <h3>Lista de usuarios</h3>
+  </div>
+</div>
+<hr>
+<div class="navegacion">
+  <div class="navigation">
+    <button class="return" routerLink="/admin/users"><i class="fa-solid fa-arrow-left"></i></button>
+  </div>
+</div>
+
+@if (mensajeEstado) {
+  <p>{{ mensajeEstado }}</p>
+}
+@if (mensajeExito) {
+  <p class="valido">{{ mensajeExito }}</p>
+}
+
+@if (planesAsig.length < 1) {
+  <div class="apartado">
+    <span class="seccion" aria-label="Mis planes">No hay planes contratados</span>
+  </div>
+}
+
+@for (miPlan of planesAsig; track $index) {
+  <!-- Tarjetas de varios planes -->
+  <div class="plan">
+    <!--Trageta 1-->
+    <div class="card">
+      <div class="titulo">
+        <h3 aria-label="Ganancia muscular">{{ miPlan.plan.nombre }}</h3>
+      </div>
+      <img [src]="miPlan.plan.imagen" alt="Avatar" class="imgPlan">
+      <div class="pie">
+        <div class="extraData">
+          <p>Nivel: {{ usuario.nivel }}</p>
+          <p>Peso objetivo: {{ usuario.pesoObjetivo }}</p>
+          @if (!miPlan.completado) {
+            <p>EN CURSO</p>
+          }
+          @else {
+            <p>COMPLETADO</p>
+          }
+        </div>
+        <button class="asignados" (click)="eliminar(miPlan.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+}
+<br><br><br><br><br><br>
+
+<!--Mostrar el pie de pagina-->
+<app-footer2></app-footer2>

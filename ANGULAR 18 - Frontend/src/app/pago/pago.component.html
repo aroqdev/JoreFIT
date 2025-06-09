@@ -1,0 +1,63 @@
+<!-- Import de iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<br>
+<button [routerLink]="['/profile/addPlan', selectedPlan?.nombre]" class="add"><i class="fa-solid fa-backward"></i></button>
+<div class="todo">
+  <div class="body">
+    <i class="fa-solid fa-box"></i>
+    @if (!usuario.nombre_titular) {
+      <div class="payments">
+        <div class="subtitle">
+          <i class="fa-solid fa-credit-card"></i><h4>Forma de pago</h4><br><br>
+        </div><br>
+        <div class="card">
+          <p>Pago con Tarjeta</p>
+          <div class="image">
+            <i class="fa-brands fa-cc-visa tarjeta"></i>
+            <button class="add" [routerLink]="['/profile/addCard', selectedPlan?.id]"><i class="fa-solid fa-plus more"></i></button>
+          </div>
+        </div>
+      </div>
+    }
+    @else {
+      <div class="payments">
+        <div class="subtitle">
+          <i class="fa-solid fa-credit-card"></i><h4>Forma de pago</h4><br><br>
+        </div><br>
+        <div class="card">
+          <div class="column">
+            <label class="label">Método de pago</label>
+            <p>Pago con Tarjeta</p>
+          </div>
+          <div class="column">
+            <label class="label">Titular</label>
+            <p>{{usuario.nombre_titular}}</p>
+          </div>
+          <div class="column">
+            <label class="label">Tarjeta</label>
+            <p>***{{ getUltimosDigitos(usuario.numero_tarjeta) }}</p>
+          </div>
+          <div class="column">
+            <label class="label">Fecha de vencimiento</label>
+            <p>{{ usuario.fecha_vencimiento }}</p>
+          </div>
+
+          <div class="image">
+            <i class="fa-brands fa-cc-visa tarjeta"></i>
+            <button class="add" [routerLink]="['/profile/addCard', selectedPlan?.id]"><i class="fa-solid fa-plus more"></i></button>
+          </div>
+        </div>
+      </div>
+      <button class="send" (click)="contratar()">Confirmar</button>
+    }
+  </div>
+
+  <div class="details">
+    <h3>Resumen del pedido</h3>
+    <hr>
+    <div class="producto">
+      <h4>Plan de {{ selectedPlan?.nombre }}</h4>
+      <p>{{ selectedPlan?.precio }}€</p>
+    </div>
+    </div>
+</div>

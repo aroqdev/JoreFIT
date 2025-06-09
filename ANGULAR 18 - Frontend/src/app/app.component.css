@@ -1,0 +1,126 @@
+/*Imports de fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+/**/
+*{
+  font-family:'Rubik';
+}
+
+/*Propiedades del encabezado*/
+div.header{
+  background-color: #474747;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-self: center;
+  min-height: 5vh;
+}
+
+/*Propiedades de los iconos de la app*/
+img.icon{
+  width: 7%;
+  height: 7%;
+  margin: 1vh;
+}
+
+/*Propiedades del titulo de la app*/
+h1.title{
+  width: 11vw;
+  height: 11vh;
+  text-align: center;
+  font-size: 35px;
+  padding-top: 2%;
+  color: white;
+  padding-left: 37vw;
+  min-height: 9vh;
+}
+
+div.gestion{
+  margin-left: 10vw;
+  padding-top: 4vh;
+  display: flex;
+}
+
+button.gestiones{
+  margin-top: 2vh;
+  margin-right: 1vw; /*Disseño responsive*/
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  width: 14vw;
+  height: 5vh;
+  text-align: left;
+  background-color: #15CCCC;
+  color: black;
+  border: none;
+  border-radius: 2vh;
+  font-size: 18px;
+  min-width: 10vw;
+  min-height: 7vh;
+}
+
+button.gestiones:hover{
+  color: white;
+}
+
+.profile{
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  border: none;
+  margin-top: 30%;
+  background-color: #15CCCC;
+  font-size: 20px;
+  float: right; /*Empuja al boton hacia la derecha*/
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  div.header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img.icon {
+    width: 15%;
+    height: 15%;
+    margin: 2vh;
+  }
+
+  h1.title {
+    font-size: 28px;
+    padding-left: 0;
+    padding-top: 1vh;
+    width: auto;
+    height: auto;
+  }
+
+  div.gestion {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding-top: 2vh;
+    gap: 5px;
+  }
+
+  button.gestiones {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 1vh;
+    padding-right: 25px;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1.title {
+    font-size: 24px;
+  }
+
+  button.gestiones {
+    font-size: 14px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+  }
+}

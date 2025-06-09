@@ -1,0 +1,156 @@
+/* Reset de margenes y padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.contenido{
+  background-color: #d1d1d181;
+}
+
+.return {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.return:hover {
+  background-color: #5a6268;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.apartado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0px;
+}
+
+.seccion {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.clip {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.mensaje {
+  background-color: #e0ffe0;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.ejercicios-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.ejercicio {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.imagenEjer img {
+  width: 30vw;
+  height: 50vh;
+  border-radius: 20%;
+}
+
+.contenido {
+  padding: 15px;
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.series p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.botonCom {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.botonCom:hover {
+  background-color: #218838;
+}
+
+.botonCom i {
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .apartado {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .back-button {
+    margin-top: 10px;
+  }
+
+  .ejercicios-container {
+    grid-template-columns: 1fr;
+  }
+}

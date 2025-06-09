@@ -1,0 +1,245 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!--Encabezado del perfil-->
+<div class="header">
+  <br>
+</div>
+<!--Divicion que contendra la seccion que muestra la imagen de perfil del usuario-->
+<div class="imagen">
+  <!--Imagen de perfil del usuario-->
+  <i class="fa-solid fa-user-tie pfp"></i>
+  <!--<img src="assets/pfp.jpg" alt="Imagen de perfil" >-->
+</div>
+
+<div class="datos">
+  <div class="userData">
+    <div class="name">
+    <!--Nombre real del usuario-->
+    <i class="fa-solid fa-address-book"></i><p>{{ usuario.nombre }}</p>
+    </div>
+    <div class="name">
+    <!--Nombre de usuario-->
+    <i class="fa-solid fa-envelope"></i><p>{{ usuario.correo }}</p>
+    </div><br>
+  </div>
+
+  <div class="botones">
+    <!--Boton para editar los datos del usuario-->
+    <button aria-label="Editar perfil" class="boton" routerLink="/profile/updateAdmin">Editar <i class="fa-solid fa-user-pen"></i></button>
+    <!--Boton para cerrar sesion-->
+    <button aria-label="Cerrar sesión" class="boton" (click)="logout()">Cerrar sesión <i class="fa-solid fa-door-open"></i></button>
+  </div>
+</div>
+  <div class="apartado">
+    <span class="seccion" aria-label="Mis planes">Perfil de administrador</span><i class="fa-solid fa-user-tie"></i>
+    <hr>
+  </div>
+
+<!--Listado de planes-->
+<div class="addPlan">
+  <button class="botonPlan" aria-label="Agregar plan" routerLink="/admin/users">Gestionar usuarios <i class="fa-solid fa-user-pen"></i></button>
+  <button class="botonPlan" aria-label="Agregar plan" routerLink="/admin/plans">Gestionar planes <i class="fa-solid fa-clipboard"></i></button>
+</div>
+
+<!--Division que organiza la gestion del administrador-->
+<div class="gestion">
+  <div class="formulario">
+    <!--Titulo del primer formulario-->
+    <div class="titulo">
+      <i class="fa-solid fa-user-plus"></i>
+      <p>Crear Usuario</p>
+    </div>
+    <form [formGroup]="registro">
+      <div class="cuerpo">
+        <h3 class="titulos">Datos personales</h3>
+        <!--Agrupamos los inputs en filas de dos-->
+        <div class="fila">
+          <input type="text" name="nombre" placeholder="Escribe tu nombre" id="nombre" formControlName="nombre">
+          @if (nombre.hasError('required') && nombre.touched) {
+            <p>El NOMBRE es obligatorio</p>
+          } @else if (nombre.hasError('maxlength') && nombre.touched) {
+            <p>El NOMBRE es muy largo</p>
+          }
+          <input type="text" name="apellido" placeholder="Escribe tu apellido" id="apellido" formControlName="apellido">
+          @if (apellido.hasError('required') && apellido.touched) {
+            <p>El APELLIDO es obligatorio</p>
+          } @else if (apellido.hasError('maxlength') && apellido.touched) {
+            <p>El APELLIDO es muy largo</p>
+          }
+        </div>
+
+        <div class="fila">
+          <input type="email" name="correo" placeholder="Elije un correo electrónico" id="correo" formControlName="correo"><br>
+            @if (correo.hasError('required') && correo.touched) {
+              <p>El CORREO es obligatorio</p>
+            } @else if (correo.hasError('correoExiste') && correo.touched) {
+              <p>El CORREO ya esta registrado</p>
+            } @else if (correo.hasError('email') && correo.touched) {
+              <p>El CORREO no es valido</p>
+            } @else if (correo.valid && correo.touched) {
+              <p class="valido">El CORREO está disponible</p>
+            }
+
+          <input type="text" name="contrasena" placeholder="Elije una contraseña" id="contrasena" formControlName="contrasena"><br>
+            @if (contrasena.hasError('required') && contrasena.touched) {
+              <p>La CONTRASEÑA es obligatorio</p>
+            } @else if (contrasena.hasError('contrasenaFuerte') && contrasena.touched) {
+                <p>La CONTRASEÑA no es fuerte</p>
+            } @else if (contrasena.hasError('maxlength') && contrasena.touched || contrasena.hasError('minlength') && contrasena.touched) {
+                <p>La CONTRASEÑA no es valida</p>
+            } @else if (contrasena.valid && contrasena.touched) {
+                <p class="valido">La CONTRASEÑA es fuerte</p><br>
+            }
+        </div>
+
+        <div class="fila">
+          <input type="text" min="1" name="repetirContrasena" placeholder="Repite tu contraseña" id="repetirContrasena" formControlName="repetirContrasena" (keyup)="coincideContrasena()"><br>
+          @if (repetirContrasena.hasError('required') && repetirContrasena.touched) {
+            <p>La CONTRASEÑA es obligatorio</p>
+          } @else if (repetirContrasena.hasError('contrasenaFuerte') && repetirContrasena.touched) {
+            <p>La CONTRASEÑA no es fuerte</p>
+          } @else if (repetirContrasena.hasError('maxlength') && repetirContrasena.touched || repetirContrasena.hasError('minlength') && repetirContrasena.touched) {
+              <p>La CONTRASEÑA no es valida</p>
+          } @else if (repetirContrasena.valid && repetirContrasena.touched) {
+              <p class="valido">La CONTRASEÑA es fuerte</p>
+          } @if (contrasena.valid && contrasena.touched) {
+              @if (repetirContrasena.valid && repetirContrasena.touched) {
+                @if (coincidenContrasenas) {
+                  <br><p class="valido">Las CONTRASEÑAS coinciden</p>
+                } @else {
+                  <p>Las CONTRASEÑAS NO coinciden</p>
+                }
+              }
+            }
+        </div>
+      </div>
+
+      <!--Apartado de datos relacionados al deporte-->
+      <div class="cuerpo">
+        <h3 class="titulos">Datos relacionados al deporte</h3>
+      
+        <div class="fila">
+          <!--Peso actual-->
+          <input type="number" name="pesoActual" placeholder="Escribe tu peso actual (kg)" id="pesoActual" formControlName="pesoActual"><br>
+            @if (pesoActual.hasError('required') && pesoActual.touched) {
+              <p>El PESO ACTUAL es obligatorio</p>
+            }
+            <br>
+
+          <!--Peso objetivo-->
+          <input type="number" min="1" name="pesoObjetivo" placeholder="Escribe tu peso objetivo (kg)" id="pesoObjetivo" formControlName="pesoObjetivo"><br>
+            @if (pesoObjetivo.hasError('required') && pesoObjetivo.touched) {
+              <p>El PESO OBJETIVO es obligatorio</p>
+            }
+        </div>
+        <div class="fila">
+          <!--Nivel del usuario-->
+          <select id="nivel" formControlName="nivel">
+            <option value="" disabled selected>--Elije un nivel--</option>
+            <option value="Aficionado">AFICIONADO</option>
+            <option value="Intermedio">INTERMEDIO</option>
+            <option value="Avanzado">AVANZADO</option>
+          </select>
+            @if (nivel.hasError('required') && nivel.touched) {
+              <p>Porfavor, elija un nivel</p>
+            }
+          <div class="nacimiento">
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" formControlName="fecha_nacimiento"><br>
+              @if (fecha_nacimiento.hasError('required') && fecha_nacimiento.touched) {
+                <p>La FECHA DE NACIMIENTO es obligatorio</p>
+              }
+          </div>
+        </div>
+      </div>
+      @if (mensajeEstadoUser) {
+        <p>{{ mensajeEstadoUser }}</p>
+      }
+      @if (coincidenContrasenas) {
+        <div class="formButton">
+          <button class="boton" type="submit" [disabled]="registro.invalid" (click)="registerUser()">Crear usuario <i class="fa-solid fa-user-plus register"></i></button>
+        </div>
+      }
+      @else {
+        <div class="formButton">
+          <button class="boton" disabled>Crear usuario <i class="fa-solid fa-user-plus register"></i></button>
+        </div>
+      }
+    </form>
+  </div>
+  <div class="formulario">
+     <!--Titulo del primer formulario-->
+    <div class="titulo">
+      <i class="fa-solid fa-address-book"></i>
+      <p>Crear Plan</p>
+    </div>
+
+    <form [formGroup]="registroPlan">
+      <div class="cuerpo">
+        <h3 class="titulos">Datos del plan</h3>
+
+        <!--Agrupamos los inputs en filas de dos-->
+        <div class="fila">
+          <input type="text" name="nombrePlan" placeholder="Escribe el nombre del plan" id="nombrePlan" formControlName="nombrePlan">
+          @if (nombrePlan.hasError('required') && nombrePlan.touched) {
+            <p>El NOMBRE DEL PLAN es obligatorio</p>
+          } @else if (nombrePlan.hasError('maxlength') && nombrePlan.touched) {
+            <p>El NOMBRE DEL PLAN es muy largo</p>
+          }
+          
+
+          <textarea name="descripcion" placeholder="Ingresa la descripcion" id="descripcion" formControlName="descripcion"></textarea>
+          @if (descripcion.hasError('required') && descripcion.touched) {
+            <p>La DESCRIPCION es obligatorio</p>
+          } @else if (descripcion.hasError('maxlength') && descripcion.touched) {
+            <p>La DESCRIPCION es muy largo</p>
+          }
+          
+        </div>
+        <div class="fila">
+          <input type="text" name="imagen" placeholder="Ingresa la imagen (URL)" id="imagen" formControlName="imagen">
+          @if (imagen.hasError('required') && imagen.touched) {
+            <p>La IMAGEN es obligatorio</p>
+          } @else if (imagen.hasError('maxlength') && imagen.touched) {
+            <p>La IMAGEN es muy largo</p>
+          }
+          
+
+          <input type="number" name="duracion" placeholder="Escribe la duracion del plan (MESES)" id="duracion" formControlName="duracion">
+          @if (duracion.hasError('required') && duracion.touched) {
+            <p>La DURACION es obligatorio</p>
+          }
+          
+        </div>
+
+        <div class="fila">
+        <input type="number" min="1" name="precio" placeholder="Escribe el precio" id="precio" formControlName="precio">
+        @if (precio.hasError('required') && precio.touched) {
+          <p>El PRECIO es obligatorio</p>
+        }
+
+        @if (mensajeEstadoPlan) {
+          <p>{{ mensajeEstadoPlan }}</p>
+        }
+        
+        </div>
+      </div>
+      
+      <div class="formButton">
+        <button class="boton" type="submit" [disabled]="registroPlan.invalid" (click)="registerPlan()">Crear plan <i class="fa-solid fa-user-plus register"></i></button>
+      </div>
+      </form>
+  </div>
+</div>
+
+<div class="datos">
+
+</div>
+
+<br><br><br><br>
+
+<div class="datos">
+
+</div>
+<br>
+<!--Mostrar el pie de pagina-->
+<app-footer2></app-footer2>

@@ -1,0 +1,149 @@
+.todo {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.return {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.return:hover {
+  background-color: #5a6268;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.body i.fa-box {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.payments {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.column {
+  flex: 1 1 45%;
+  text-align: left;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.image .tarjeta {
+  font-size: 32px;
+  color: #1a73e8;
+}
+
+.add {
+  float: left;
+  margin-left: 10px;
+  background-color: #289fa7;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add:hover {
+  background-color: #218838;
+}
+
+.send {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.send:hover {
+  background-color: #0056b3;
+}
+
+.details {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.details h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.details hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 15px;
+}
+
+.producto {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #444;
+}
